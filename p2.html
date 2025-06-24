@@ -1,0 +1,894 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Paguyuban Cakning Vokasi 2024
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Great+Vibes&amp;family=Oswald&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet"/>
+  <style>
+   /* Custom fonts */
+    .font-display {
+      font-family: "Anton", sans-serif;
+    }
+    .font-subtitle {
+      font-family: "Great Vibes", cursive;
+    }
+    .font-oswald {
+      font-family: "Oswald", sans-serif;
+    }
+    /* Header slideshow container */
+    .header-bg {
+      position: relative;
+      overflow: hidden;
+      min-height: 600px;
+      width: 100%;
+    }
+    .header-slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(0.75) saturate(1.2);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+    }
+    .header-slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    /* Particle stars */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, #fff 60%, transparent 100%);
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 6s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%,
+      100% {
+        opacity: 0.8;
+      }
+      50% {
+        opacity: 0.2;
+      }
+    }
+    /* Typing animation */
+    .typing {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 0.15em solid #f0e6d2;
+      animation:
+        typing 3.5s steps(30, end) forwards,
+        blink-caret 0.75s step-end infinite;
+      font-family: "Anton", sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      max-width: 100%;
+      color: #f0e6d2; /* elegant cream */
+      text-shadow:
+        -2px -2px 0 #2c2c2c,
+        2px -2px 0 #2c2c2c,
+        -2px 2px 0 #2c2c2c,
+        2px 2px 0 #2c2c2c,
+        0 0 5px #f0e6d2,
+        0 0 10px #f0e6d2,
+        0 0 20px #d1c7b7,
+        0 0 30px #b3a891,
+        0 0 40px #b3a891,
+        0 0 50px #b3a891,
+        0 0 60px #b3a891;
+      margin: 0 auto;
+      padding: 0 1rem;
+      border-radius: 0.5rem;
+      background-color: #ff7f00; /* solid orange background */
+      display: inline-block;
+      position: relative;
+      overflow: visible;
+      text-align: center;
+    }
+    /* Shine effect */
+    .typing::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        120deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-25deg);
+      animation: shine 2.5s infinite;
+      pointer-events: none;
+      border-radius: 0.5rem;
+      z-index: 10;
+    }
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+      100% {
+        left: 125%;
+      }
+    }
+    @keyframes typing {
+      from {
+        width: 0;
+      }
+      to {
+        width: 100%;
+      }
+    }
+    @keyframes blink-caret {
+      50% {
+        border-color: transparent;
+      }
+    }
+    /* Responsive text shadows for better readability */
+    p {
+      text-shadow: 0 0 6px rgba(255, 215, 0, 0.8), 0 0 10px rgba(255, 140, 0, 0.6);
+    }
+    /* Responsive container padding */
+    @media (max-width: 640px) {
+      header {
+        padding-top: 6rem;
+        padding-bottom: 10rem;
+      }
+      .typing {
+        font-size: 2.5rem;
+        white-space: normal;
+        border-right: none;
+        width: auto;
+      }
+      .typing span {
+        display: block;
+      }
+    }
+    /* Glow and pulse for buttons */
+    .btn-glow {
+      transition: box-shadow 0.3s ease-in-out;
+      border-width: 3px;
+      border-style: solid;
+      border-color: #ffd700;
+      background-color: #ff7f00;
+      color: #222;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      padding: 1rem 2.5rem;
+      box-shadow: 0 0 8px 2px #ffd700;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-glow:hover, .btn-glow:focus {
+      box-shadow: 0 0 20px 6px #ffd700;
+      animation: pulse 2s infinite;
+      outline: none;
+      text-decoration: none;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 20px 6px #ffd700; }
+      50% { box-shadow: 0 0 30px 10px #ff7f00; }
+    }
+    /* Batik border for cards */
+    .batik-border {
+      border-image-source: url('https://placehold.co/100x20/png?text=Batik+Border+Gold');
+      border-image-slice: 20 fill;
+      border-image-width: 6px;
+      border-image-outset: 0;
+      border-image-repeat: round;
+      border-style: solid;
+      border-width: 6px;
+    }
+    /* Glow effect for images */
+    .glow {
+      box-shadow: 0 0 8px 2px #FFD700;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .glow:hover, .glow:focus {
+      box-shadow: 0 0 20px 6px #FFD700;
+      outline: none;
+    }
+    /* Sparkle animation */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+    }
+    .sparkle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle at center, #fff, transparent);
+      border-radius: 50%;
+      filter: drop-shadow(0 0 4px #fff);
+      animation: sparkle 2.5s infinite ease-in-out;
+    }
+    /* Sparkle container for photos */
+    .sparkle-container {
+      position: relative;
+      display: inline-block;
+    }
+    .sparkle1 {
+      top: 10%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+    .sparkle2 {
+      top: 40%;
+      left: 70%;
+      animation-delay: 1s;
+    }
+    .sparkle3 {
+      top: 75%;
+      left: 30%;
+      animation-delay: 1.5s;
+    }
+    .sparkle4 {
+      top: 20%;
+      left: 80%;
+      animation-delay: 2s;
+    }
+    .sparkle5 {
+      top: 60%;
+      left: 60%;
+      animation-delay: 2.5s;
+    }
+    /* Text outline for header subtitle */
+    .text-outline {
+      -webkit-text-stroke: 0.8px #B8860B;
+      color: #fff;
+    }
+    /* Batik background for gallery and footer border */
+    .batik-bg {
+      background: url('https://placehold.co/1200x400/png?text=Batik+Background+Pattern+Orange+Gold') center center/cover no-repeat;
+      opacity: 0.12;
+    }
+    /* Scrollbar styling for carousel */
+    .carousel::-webkit-scrollbar {
+      height: 8px;
+    }
+    .carousel::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .carousel::-webkit-scrollbar-thumb {
+      background: #FFD700;
+      border-radius: 4px;
+    }
+    /* Text fade-in and slide-up on scroll */
+    .fade-slide-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-slide-up.aos-animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Responsive image frames for header photos */
+    .photo-frame {
+      border: 3px solid #FFD700;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 0 10px 2px #FFA500;
+      transition: box-shadow 0.3s ease-in-out;
+    }
+    .photo-frame:hover, .photo-frame:focus {
+      box-shadow: 0 0 20px 5px #FFD700;
+      outline: none;
+    }
+    /* Navbar styles */
+    nav a {
+      transition: color 0.3s ease;
+    }
+    nav a:focus {
+      outline-offset: 2px;
+    }
+  </style>
+ </head>
+ <body class="min-h-screen flex flex-col bg-[#222] text-white">
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#ff7f00] to-[#ffd700] shadow-lg">
+   <div class="max-w-7xl mx-auto px-6 sm:px-12 lg:px-20">
+    <div class="flex items-center justify-between h-16">
+     <a class="flex items-center space-x-3" href="#header">
+      <img alt="Logo Paguyuban Cakning Vokasi 2024 berwarna oranye dan emas dengan motif batik" class="h-17 w-17 object-contain" height="120" src="logo.png" width="8"/>
+      <span class="font-display text-2xl font-bold text-[#222] select-none drop-shadow-md">
+       Cakning Vokasi 2024
+      </span>
+     </a>
+     <div class="hidden md:flex space-x-8 font-oswald font-semibold text-[#222]">
+      <a class="hover:text-[#a05a00] focus:outline-none focus:ring-2 focus:ring-[#a05a00] rounded" href="#tentang-kami">
+       Tentang Kami
+      </a>
+      <a class="hover:text-[#a05a00] focus:outline-none focus:ring-2 focus:ring-[#a05a00] rounded" href="#visi-misi-motto">
+       Visi &amp; Misi
+      </a>
+      <a class="hover:text-[#a05a00] focus:outline-none focus:ring-2 focus:ring-[#a05a00] rounded" href="#struktur-anggota">
+       Struktur &amp; Anggota
+      </a>
+      <a class="hover:text-[#a05a00] focus:outline-none focus:ring-2 focus:ring-[#a05a00] rounded" href="#program-unggulan">
+       Program Unggulan
+      </a>
+      <a class="hover:text-[#a05a00] focus:outline-none focus:ring-2 focus:ring-[#a05a00] rounded" href="#galeri-kegiatan">
+       Galeri
+      </a>
+      <a class="hover:text-[#a05a00] focus:outline-none focus:ring-2 focus:ring-[#a05a00] rounded" href="#kontak-kami">
+       Kontak
+      </a>
+     </div>
+     <button aria-label="Toggle menu" class="md:hidden text-[#222] focus:outline-none focus:ring-2 focus:ring-[#a05a00]" id="menu-btn" type="button">
+      <i class="fas fa-bars fa-lg">
+      </i>
+     </button>
+    </div>
+   </div>
+   <div class="md:hidden bg-gradient-to-r from-[#ff7f00] to-[#ffd700]" id="mobile-menu" style="display:none;">
+    <a class="block px-6 py-3 font-oswald font-semibold text-[#222] hover:bg-[#a05a00] hover:text-white focus:outline-none focus:bg-[#a05a00] focus:text-white" href="#tentang-kami">
+     Tentang Kami
+    </a>
+    <a class="block px-6 py-3 font-oswald font-semibold text-[#222] hover:bg-[#a05a00] hover:text-white focus:outline-none focus:bg-[#a05a00] focus:text-white" href="#visi-misi-motto">
+     Visi &amp; Misi
+    </a>
+    <a class="block px-6 py-3 font-oswald font-semibold text-[#222] hover:bg-[#a05a00] hover:text-white focus:outline-none focus:bg-[#a05a00] focus:text-white" href="#struktur-anggota">
+     Struktur &amp; Anggota
+    </a>
+    <a class="block px-6 py-3 font-oswald font-semibold text-[#222] hover:bg-[#a05a00] hover:text-white focus:outline-none focus:bg-[#a05a00] focus:text-white" href="#program-unggulan">
+     Program Unggulan
+    </a>
+    <a class="block px-6 py-3 font-oswald font-semibold text-[#222] hover:bg-[#a05a00] hover:text-white focus:outline-none focus:bg-[#a05a00] focus:text-white" href="#galeri-kegiatan">
+     Galeri
+    </a>
+    <a class="block px-6 py-3 font-oswald font-semibold text-[#222] hover:bg-[#a05a00] hover:text-white focus:outline-none focus:bg-[#a05a00] focus:text-white" href="#kontak-kami">
+     Kontak
+    </a>
+   </div>
+  </nav>
+  <!-- HEADER -->
+  <header class="header-bg relative flex flex-col items-center justify-center text-center text-white pt-28 pb-44 overflow-visible" id="header" style="margin-top:64px;">
+   <img alt="Latar belakang megah dengan pemandangan heroik berwarna oranye keemasan, sinar cahaya melengkung dan aura semangat perjuangan generasi vokasi" class="header-slide active" height="1080" loading="eager" src="CAK NING VOKASI noteks logo.png" width="1920"/>
+   <img alt="Latar belakang megah dengan pemandangan budaya batik oranye dan emas yang elegan" class="header-slide" height="1080" loading="eager" src="slide 2.png" width="1920"/>
+   <img alt="Latar belakang megah dengan motif batik tradisional oranye dan emas yang artistik" class="header-slide" height="1080" loading="eager" src="slide 3.png" width="1920"/>
+   <div aria-hidden="true" class="particles">
+    <script>
+     document.addEventListener("DOMContentLoaded", () => {
+          const container = document.querySelector(".particles");
+          for (let i = 0; i < 40; i++) {
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+            const size = Math.random() * 2 + 1; // 1-3 px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.top = `${Math.random() * 100}%`;
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.animationDelay = `${Math.random() * 6}s`;
+            particle.style.animationDuration = `${4 + Math.random() * 4}s`;
+            container.appendChild(particle);
+          }
+        });
+    </script>
+   </div>
+   <div class="absolute bottom-12 w-full flex justify-center px-4">
+    <h1 aria-label="Paguyuban Cakning Vokasi 2025" class="typing">
+     <span>
+      PAGUYUBAN CAKNING VOKASI
+     </span>
+     <span>
+      2024
+     </span>
+    </h1>
+   </div>
+  </header>
+  <!-- TENTANG KAMI -->
+  <section class="relative py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#fff8f0] text-[#4b2e05]" id="tentang-kami">
+   <div class="batik-overlay" style="opacity:0.07; background-image:url('logo.png'); mix-blend-mode: multiply;">
+   </div>
+   <div class="max-w-7xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
+    <div class="md:w-1/2" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+     <h2 class="font-display text-3xl font-bold mb-4 text-[#d2691e]">
+      Tentang Kami
+     </h2>
+     <p class="font-oswald text-lg leading-relaxed">
+      Paguyuban Cakning Vokasi 2025 adalah komunitas yang berfokus pada pengembangan generasi vokasi yang kreatif, berdaya saing, dan berakar pada budaya Indonesia, khususnya batik. Kami berkomitmen untuk menyatukan semangat dan karya para anggota dalam membangun masa depan yang gemilang melalui nilai-nilai kebersamaan, inovasi, dan pelestarian budaya.
+     </p>
+     <p class="mt-4 font-oswald text-lg leading-relaxed">
+      Sejak berdiri, kami telah mengadakan berbagai kegiatan yang mengedepankan kolaborasi dan pengembangan potensi anggota, serta memperkuat identitas budaya melalui batik sebagai simbol kekayaan warisan nusantara.
+     </p>
+    </div>
+    <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+     <img alt="Ilustrasi logo modern bernuansa batik dengan warna oranye dan emas, menggambarkan motif batik tradisional yang dipadukan dengan desain kontemporer" class="rounded-lg shadow-lg max-w-full h-auto" height="400" src="logo.png" width="400"/>
+    </div>
+   </div>
+  </section>
+  <!-- VISI, MISI, MOTTO -->
+  <section class="py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#fff3d6] text-[#5a3e1b]" id="visi-misi-motto">
+   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+    <div class="bg-[#fff8f0] rounded-xl p-8 shadow-lg batik-border" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+     <h3 class="font-display text-2xl font-bold mb-4 text-[#d2691e]">
+      Visi
+     </h3>
+     <p class="font-oswald text-lg leading-relaxed">
+      Menjadi paguyuban vokasi terdepan yang menginspirasi generasi muda untuk berkarya dengan semangat budaya dan inovasi demi kemajuan bangsa.
+     </p>
+    </div>
+    <div class="bg-[#fff8f0] rounded-xl p-8 shadow-lg batik-border" data-aos="flip-left" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">
+     <h3 class="font-display text-2xl font-bold mb-4 text-[#d2691e]">
+      Misi
+     </h3>
+     <ul class="font-oswald text-lg leading-relaxed list-none space-y-3 text-left max-w-md mx-auto">
+      <li class="flex items-center gap-3">
+       <i class="fas fa-check-circle text-[#FFA500]">
+       </i>
+       Mengembangkan potensi anggota melalui pelatihan dan pembinaan berkelanjutan.
+      </li>
+      <li class="flex items-center gap-3">
+       <i class="fas fa-check-circle text-[#FFA500]">
+       </i>
+       Melestarikan dan mempromosikan budaya batik sebagai identitas kultural.
+      </li>
+      <li class="flex items-center gap-3">
+       <i class="fas fa-check-circle text-[#FFA500]">
+       </i>
+       Mendorong kolaborasi antar anggota untuk inovasi dan karya nyata.
+      </li>
+      <li class="flex items-center gap-3">
+       <i class="fas fa-check-circle text-[#FFA500]">
+       </i>
+       Menjalin kemitraan strategis dengan berbagai pihak untuk pengembangan vokasi.
+      </li>
+     </ul>
+    </div>
+    <div class="bg-[#fff8f0] rounded-xl p-8 shadow-lg batik-border flex flex-col items-center justify-center" data-aos="zoom-in" data-aos-delay="600" data-aos-duration="1000" data-aos-once="true">
+     <h3 aria-label="Motto Paguyuban Cakning Vokasi 2025" class="font-subtitle text-3xl text-[#d2691e] mb-6 select-text">
+      “Bersatu Menyala”
+     </h3>
+     <p class="font-oswald text-lg max-w-xs">
+      Semangat kami yang menyatukan kekuatan dan kreativitas untuk berkarya dan berdaya saing di era modern tanpa melupakan akar budaya.
+     </p>
+    </div>
+   </div>
+  </section>
+  <!-- CTA -->
+  <section class="py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-gradient-to-r from-[#FFA500] to-[#FFD700] text-[#222] text-center" id="cta">
+   <h2 class="font-display text-4xl font-bold mb-8 drop-shadow-lg select-none" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    Gabung Bersama Kami
+   </h2>
+   <div class="flex flex-col sm:flex-row justify-center gap-8 max-w-xl mx-auto">
+    <a aria-label="Tombol pendaftaran batch 2" class="btn-glow" data-aos="pulse" data-aos-delay="200" data-aos-duration="1500" data-aos-once="true" href="https://docs.google.com/forms/d/e/1FAIpQLScU_0f8rE_JZsNwpsBBnOv9HshtH_p5Sm0jt7JgydpSIrPeXA/viewform" rel="noopener" role="button" tabindex="0" target="_blank">
+     Pendaftaran Batch 2
+    </a>
+    <a aria-label="Tombol panduan dan syarat" class="btn-glow" data-aos="pulse" data-aos-delay="400" data-aos-duration="1500" data-aos-once="true" href="https://example.com/panduan-syarat.pdf" rel="noopener" role="button" tabindex="0" target="_blank">
+     Panduan &amp; Syarat
+    </a>
+   </div>
+  </section>
+  <!-- STRUKTUR & ANGGOTA -->
+  <section class="py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#fff8f0] text-[#4b2e05]" id="struktur-anggota">
+   <h2 class="font-display text-3xl font-bold mb-12 text-center text-[#d2691e]" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
+    Struktur &amp; Anggota
+   </h2>
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+    <!-- 12 anggota cards -->
+    <article aria-label="Profil anggota Andi Prasetyo, gelar S.T., divisi Pengembangan" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Andi Prasetyo mengenakan batik oranye dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/cbbc9dff-11df-4cca-b721-33d6c0f9281d.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Andi Prasetyo, S.T.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Pengembangan
+     </p>
+    </article>
+    <article aria-label="Profil anggota Sari Dewi, gelar M.M., divisi Kreatif" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Sari Dewi mengenakan kebaya batik emas dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/fbde116a-b623-4d65-b5c5-980d20b0ba42.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Sari Dewi, M.M.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Kreatif
+     </p>
+    </article>
+    <article aria-label="Profil anggota Budi Santoso, gelar S.Kom., divisi IT" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Budi Santoso mengenakan batik oranye dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/296fbb4a-a1bc-495d-fc54-9bbecf4d8a36.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Budi Santoso, S.Kom.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi IT
+     </p>
+    </article>
+    <article aria-label="Profil anggota Dewi Lestari, gelar S.Pd., divisi Pendidikan" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Dewi Lestari mengenakan kebaya batik emas dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/8d025e2e-38c5-4dd5-ae09-4de0a53bf9bc.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Dewi Lestari, S.Pd.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Pendidikan
+     </p>
+    </article>
+    <article aria-label="Profil anggota Eko Prabowo, gelar M.T., divisi Riset" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="500" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Eko Prabowo mengenakan batik oranye dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/6a590a7b-a41c-4a27-3b5b-740dc0049f01.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Eko Prabowo, M.T.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Riset
+     </p>
+    </article>
+    <article aria-label="Profil anggota Fitri Handayani, gelar S.E., divisi Keuangan" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="600" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Fitri Handayani mengenakan kebaya batik emas dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/bcbca693-2395-43e7-c9b6-9a0e7010038a.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Fitri Handayani, S.E.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Keuangan
+     </p>
+    </article>
+    <article aria-label="Profil anggota Guntur Wijaya, gelar S.T., divisi Logistik" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="700" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Guntur Wijaya mengenakan batik oranye dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/436d9f2e-7a4b-4019-9b8a-490c4f3283f6.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Guntur Wijaya, S.T.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Logistik
+     </p>
+    </article>
+    <article aria-label="Profil anggota Hesti Nuraini, gelar M.Pd., divisi Pendidikan" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="800" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Hesti Nuraini mengenakan kebaya batik emas dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/1da1a726-d9c3-4e44-5544-bdcc135446b8.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Hesti Nuraini, M.Pd.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Pendidikan
+     </p>
+    </article>
+    <article aria-label="Profil anggota Imam Santoso, gelar S.Kom., divisi IT" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="900" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Imam Santoso mengenakan batik oranye dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/020c0b3c-8477-4de6-261e-b21f49522fd5.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Imam Santoso, S.Kom.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi IT
+     </p>
+    </article>
+    <article aria-label="Profil anggota Juwita Sari, gelar S.H., divisi Humas" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="1000" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Juwita Sari mengenakan kebaya batik emas dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/31f9c3ac-c267-4c9c-9d10-c84e20186d18.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Juwita Sari, S.H.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Humas
+     </p>
+    </article>
+    <article aria-label="Profil anggota Kartika Putri, gelar S.E., divisi Event" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="1100" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Kartika Putri mengenakan batik oranye dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/d7b1440e-7cd9-4d08-6172-39533ecaf96a.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Kartika Putri, S.E.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Event
+     </p>
+    </article>
+    <article aria-label="Profil anggota Lestari Wulandari, gelar M.M., divisi Marketing" class="batik-border rounded-xl bg-[#fff3d6] p-6 shadow-lg flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="800" data-aos-once="true" tabindex="0">
+     <img alt="Foto formal anggota bernama Lestari Wulandari mengenakan kebaya batik emas dengan latar belakang netral" class="w-40 h-40 object-cover rounded-lg mb-4 glow" height="200" src="https://storage.googleapis.com/a1aa/image/00a08813-bd34-4c22-fbc4-af22d1279b43.jpg" width="200"/>
+     <h3 class="font-display text-xl font-semibold mb-1">
+      Lestari Wulandari, M.M.
+     </h3>
+     <p class="font-oswald text-md text-[#a05a00]">
+      Divisi Marketing
+     </p>
+    </article>
+   </div>
+  </section>
+  <!-- PROGRAM UNGGULAN -->
+  <section class="py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#fff3d6] text-[#5a3e1b]" id="program-unggulan">
+   <h2 class="font-display text-3xl font-bold mb-12 text-center text-[#d2691e]" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
+    Program Unggulan
+   </h2>
+   <div aria-label="Carousel program unggulan Paguyuban Cakning Vokasi 2025" class="carousel flex overflow-x-auto gap-6 snap-x snap-mandatory scrollbar-thin scrollbar-thumb-[#FFD700] scrollbar-track-transparent" tabindex="0">
+    <!-- Pelatihan -->
+    <article aria-label="Program pelatihan" class="snap-start flex-shrink-0 w-72 bg-[#fff8f0] rounded-xl shadow-lg batik-border p-6 flex flex-col" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" tabindex="0">
+     <img alt="Gambar ilustrasi pelatihan vokasi modern dengan latar batik oranye dan emas" class="rounded-lg mb-4 object-cover w-full h-44" height="180" src="https://storage.googleapis.com/a1aa/image/d5acf047-8dfe-4dfb-7f62-321953fadd85.jpg" width="288"/>
+     <h3 class="font-display text-xl font-semibold mb-2 text-[#d2691e]">
+      Pelatihan
+     </h3>
+     <p class="font-oswald flex-grow text-[#7a4a00] mb-4">
+      Pelatihan keterampilan vokasi dengan metode modern dan kultural untuk meningkatkan kompetensi anggota.
+     </p>
+     <a aria-label="Selengkapnya tentang pelatihan" class="self-start text-[#FFA500] font-semibold hover:underline focus:underline" href="#pelatihan">
+      Selengkapnya →
+     </a>
+    </article>
+    <!-- Lomba -->
+    <article aria-label="Program lomba" class="snap-start flex-shrink-0 w-72 bg-[#fff8f0] rounded-xl shadow-lg batik-border p-6 flex flex-col" data-aos="fade-right" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true" tabindex="0">
+     <img alt="Gambar ilustrasi lomba vokasi dengan tema budaya batik oranye dan emas" class="rounded-lg mb-4 object-cover w-full h-44" height="180" src="https://storage.googleapis.com/a1aa/image/e8c2ee82-5361-4d81-9051-cd82caf31465.jpg" width="288"/>
+     <h3 class="font-display text-xl font-semibold mb-2 text-[#d2691e]">
+      Lomba
+     </h3>
+     <p class="font-oswald flex-grow text-[#7a4a00] mb-4">
+      Lomba kreatif dan inovatif yang mengangkat nilai budaya dan semangat vokasi di kalangan anggota.
+     </p>
+     <a aria-label="Selengkapnya tentang lomba" class="self-start text-[#FFA500] font-semibold hover:underline focus:underline" href="#lomba">
+      Selengkapnya →
+     </a>
+    </article>
+    <!-- Baksos -->
+    <article aria-label="Program bakti sosial" class="snap-start flex-shrink-0 w-72 bg-[#fff8f0] rounded-xl shadow-lg batik-border p-6 flex flex-col" data-aos="fade-right" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true" tabindex="0">
+     <img alt="Gambar ilustrasi bakti sosial dengan tema budaya batik oranye dan emas" class="rounded-lg mb-4 object-cover w-full h-44" height="180" src="https://storage.googleapis.com/a1aa/image/d268a00e-f20a-4827-5a26-90a19c80b016.jpg" width="288"/>
+     <h3 class="font-display text-xl font-semibold mb-2 text-[#d2691e]">
+      Baksos
+     </h3>
+     <p class="font-oswald flex-grow text-[#7a4a00] mb-4">
+      Kegiatan bakti sosial yang mengedepankan kepedulian dan semangat gotong royong berbasis budaya.
+     </p>
+     <a aria-label="Selengkapnya tentang bakti sosial" class="self-start text-[#FFA500] font-semibold hover:underline focus:underline" href="#baksos">
+      Selengkapnya →
+     </a>
+    </article>
+    <!-- Kolaborasi -->
+    <article aria-label="Program kolaborasi" class="snap-start flex-shrink-0 w-72 bg-[#fff8f0] rounded-xl shadow-lg batik-border p-6 flex flex-col" data-aos="fade-right" data-aos-delay="600" data-aos-duration="1000" data-aos-once="true" tabindex="0">
+     <img alt="Gambar ilustrasi kolaborasi vokasi dengan tema budaya batik oranye dan emas" class="rounded-lg mb-4 object-cover w-full h-44" height="180" src="https://storage.googleapis.com/a1aa/image/5cdffa59-e2e8-4912-f99d-bef8400e0e5e.jpg" width="288"/>
+     <h3 class="font-display text-xl font-semibold mb-2 text-[#d2691e]">
+      Kolaborasi
+     </h3>
+     <p class="font-oswald flex-grow text-[#7a4a00] mb-4">
+      Kolaborasi antar anggota dan mitra untuk menciptakan karya dan inovasi yang berakar pada budaya.
+     </p>
+     <a aria-label="Selengkapnya tentang kolaborasi" class="self-start text-[#FFA500] font-semibold hover:underline focus:underline" href="#kolaborasi">
+      Selengkapnya →
+     </a>
+    </article>
+   </div>
+  </section>
+  <!-- GALERI KEGIATAN -->
+  <section class="relative py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-[#fff8f0] text-[#4b2e05]" id="galeri-kegiatan">
+   <div class="batik-bg absolute inset-0 -z-10">
+   </div>
+   <h2 class="font-display text-3xl font-bold mb-12 text-center text-[#d2691e]" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
+    Galeri Kegiatan
+   </h2>
+   <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+    <!-- 12 gallery images with hover zoom and caption -->
+    <figure aria-label="Foto kegiatan pelatihan dengan peserta mengenakan batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan pelatihan vokasi dengan peserta mengenakan batik oranye dan emas sedang belajar di ruang kelas" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/36b4b5b8-b95a-4760-c15b-7361a29d2cdd.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Pelatihan Vokasi Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan lomba kreativitas dengan peserta memakai batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan lomba kreativitas dengan peserta memakai batik oranye dan emas sedang berkompetisi" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/9f151831-e84e-456e-5d8f-59cfb6e0cefb.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Lomba Kreativitas Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan bakti sosial dengan anggota memakai batik oranye dan emas sedang membagikan bantuan" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan bakti sosial dengan anggota memakai batik oranye dan emas sedang membagikan bantuan kepada masyarakat" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/c025e5e4-07de-4e2b-12d0-ab104dfdd056.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Bakti Sosial Vokasi Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan kolaborasi dengan anggota dan mitra memakai batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan kolaborasi dengan anggota dan mitra memakai batik oranye dan emas sedang berdiskusi dan bekerja sama" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/d92b00a0-9353-4a2c-4e24-6fe495aac5ce.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Kolaborasi Vokasi Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan seminar dengan latar batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan seminar dengan latar batik oranye dan emas, peserta mendengarkan pembicara" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/8c616228-ac87-4613-41d3-5412a78c135e.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Seminar Vokasi Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan workshop batik dengan peserta memakai batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan workshop batik dengan peserta memakai batik oranye dan emas sedang membuat motif batik" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/a71fcd76-57a5-411c-6b7c-fc1b5c48b85b.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Workshop Batik Vokasi
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan pameran karya batik dengan latar oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan pameran karya batik dengan latar oranye dan emas, menampilkan berbagai motif batik" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/7a2f5ccb-bdb9-4f0c-8e6d-9834882f14ba.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Pameran Karya Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan pelatihan seni batik dengan peserta memakai batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan pelatihan seni batik dengan peserta memakai batik oranye dan emas sedang belajar teknik membatik" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/0f3c4ecb-9b6e-427a-3d9d-5da4a325dc2f.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Pelatihan Seni Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan lomba desain batik dengan peserta memakai batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan lomba desain batik dengan peserta memakai batik oranye dan emas sedang mempresentasikan karya" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/be3143c4-a5d3-4536-5688-28c18866fbcf.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Lomba Desain Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan pengabdian masyarakat dengan anggota memakai batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan pengabdian masyarakat dengan anggota memakai batik oranye dan emas sedang membantu warga" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/72c5f72c-5fbf-4c9c-3c41-579358e2037f.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Pengabdian Masyarakat Batik
+     </figcaption>
+    </figure>
+    <figure aria-label="Foto kegiatan seminar nasional dengan latar batik oranye dan emas" class="relative overflow-hidden rounded-lg shadow-lg cursor-pointer group" tabindex="0">
+     <img alt="Foto kegiatan seminar nasional dengan latar batik oranye dan emas, peserta serius mendengarkan pembicara" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110 group-focus:scale-110" height="300" src="https://storage.googleapis.com/a1aa/image/fa457771-cf74-4fa4-baee-50a276403484.jpg" width="400"/>
+     <figcaption class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#d2691e]/90 to-transparent text-white p-3 text-sm font-oswald opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300 select-none">
+      Seminar Nasional Vokasi Batik
+     </figcaption>
+    </figure>
+   </div>
+  </section>
+  <!-- KONTAK KAMI -->
+  <section class="py-16 px-6 sm:px-12 md:px-20 lg:px-32 bg-gradient-to-br from-[#FFA500] to-[#FFD700] text-[#222]" id="kontak-kami">
+   <h2 class="font-display text-3xl font-bold mb-12 text-center select-none" data-aos="fade-down" data-aos-duration="1000" data-aos-once="true">
+    Kontak Kami
+   </h2>
+   <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="space-y-6" data-aos="fade-right" data-aos-duration="1000" data-aos-once="true">
+     <h3 class="font-display text-2xl font-semibold mb-4">
+      Lokasi Kampus
+     </h3>
+     <p class="font-oswald text-lg leading-relaxed max-w-md">
+      Universitas Negeri Surabaya (Unesa)
+      <br/>
+      Jl. Ketintang, Surabaya, Jawa Timur, Indonesia
+     </p>
+     <div class="mt-6 w-full h-64 rounded-lg overflow-hidden shadow-lg border-4 border-[#FFD700]">
+      <iframe allowfullscreen="" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.927927927927!2d112.765512314317!3d-7.292993994735091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbf3a3a7a3a3%3A0x7a3a3a3a3a3a3a3a!2sUniversitas%20Negeri%20Surabaya!5e0!3m2!1sen!2sid!4v1687000000000!5m2!1sen!2sid" style="border:0;" title="Peta lokasi Universitas Negeri Surabaya" width="100%">
+      </iframe>
+     </div>
+    </div>
+    <div class="space-y-6" data-aos="fade-left" data-aos-duration="1000" data-aos-once="true">
+     <h3 class="font-display text-2xl font-semibold mb-4">
+      Hubungi Kami
+     </h3>
+     <p class="font-oswald text-lg leading-relaxed max-w-md">
+      Email:
+      <a class="text-[#222] font-semibold underline hover:text-[#a05a00]" href="mailto:info@cakningvokasi2025.id">
+       info@cakningvokasi2025.id
+      </a>
+      <br/>
+      Nomor CP:
+      <a class="text-[#222] font-semibold underline hover:text-[#a05a00]" href="tel:+6281234567890">
+       +62 812-3456-7890
+      </a>
+     </p>
+     <div class="flex gap-6 mt-4">
+      <a aria-label="WhatsApp Paguyuban Cakning Vokasi 2025" class="text-[#222] hover:text-[#a05a00] text-4xl transition-colors duration-300" href="https://wa.me/6281234567890" rel="noopener" target="_blank">
+       <i class="fab fa-whatsapp">
+       </i>
+      </a>
+      <a aria-label="Facebook Paguyuban Cakning Vokasi 2025" class="text-[#222] hover:text-[#a05a00] text-4xl transition-colors duration-300" href="https://facebook.com/cakningvokasi2025" rel="noopener" target="_blank">
+       <i class="fab fa-facebook">
+       </i>
+      </a>
+      <a aria-label="Instagram Paguyuban Cakning Vokasi 2025" class="text-[#222] hover:text-[#a05a00] text-4xl transition-colors duration-300" href="https://instagram.com/cakningvokasi2025" rel="noopener" target="_blank">
+       <i class="fab fa-instagram">
+       </i>
+      </a>
+      <a aria-label="Twitter Paguyuban Cakning Vokasi 2025" class="text-[#222] hover:text-[#a05a00] text-4xl transition-colors duration-300" href="https://twitter.com/cakningvokasi25" rel="noopener" target="_blank">
+       <i class="fab fa-twitter">
+       </i>
+      </a>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="relative bg-[#222] text-[#FFD700] py-8 px-6 sm:px-12 md:px-20 lg:px-32 border-t-8 border-[#d2691e]">
+   <div class="batik-overlay" style="opacity:0.1; background-image:url('https://placehold.co/600x100/png?text=Batik+Footer+Border'); mix-blend-mode: screen;">
+   </div>
+   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
+    <div class="flex items-center gap-3">
+     <img alt="Logo kecil Paguyuban Cakning Vokasi 2024 berwarna oranye dan emas dengan motif batik" class="w-12 h-12 object-contain" height="48" src="https://storage.googleapis.com/a1aa/image/723b3c67-d899-429b-b24d-a4569151c040.jpg" width="48"/>
+     <span class="font-display font-bold text-xl select-text">
+      Paguyuban Cakning Vokasi 2024
+     </span>
+    </div>
+    <nav aria-label="Navigasi cepat footer" class="flex flex-wrap gap-6 justify-center md:justify-end text-sm font-oswald">
+     <a class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="#tentang-kami">
+      Tentang Kami
+     </a>
+     <a class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="#visi-misi-motto">
+      Visi &amp; Misi
+     </a>
+     <a class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="#struktur-anggota">
+      Struktur &amp; Anggota
+     </a>
+     <a class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="#program-unggulan">
+      Program Unggulan
+     </a>
+     <a class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="#galeri-kegiatan">
+      Galeri
+     </a>
+     <a class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="#kontak-kami">
+      Kontak
+     </a>
+    </nav>
+    <div class="flex gap-6 text-2xl">
+     <a aria-label="Facebook Paguyuban Cakning Vokasi 2025" class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="https://facebook.com/cakningvokasi2025" rel="noopener" target="_blank">
+      <i class="fab fa-facebook-f">
+      </i>
+     </a>
+     <a aria-label="Instagram Paguyuban Cakning Vokasi 2025" class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="https://instagram.com/cakningvokasi2025" rel="noopener" target="_blank">
+      <i class="fab fa-instagram">
+      </i>
+     </a>
+     <a aria-label="Twitter Paguyuban Cakning Vokasi 2025" class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="https://twitter.com/cakningvokasi25" rel="noopener" target="_blank">
+      <i class="fab fa-twitter">
+      </i>
+     </a>
+     <a aria-label="WhatsApp Paguyuban Cakning Vokasi 2025" class="hover:text-[#FFA500] focus:outline-none focus:ring-2 focus:ring-[#FFA500] rounded" href="https://wa.me/6281234567890" rel="noopener" target="_blank">
+      <i class="fab fa-whatsapp">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+  </script>
+  <script>
+   AOS.init({
+    once: true,
+    easing: 'ease-in-out',
+    duration: 800,
+  });
+
+   // Mobile menu toggle
+   const menuBtn = document.getElementById('menu-btn');
+   const mobileMenu = document.getElementById('mobile-menu');
+   menuBtn.addEventListener('click', () => {
+     if (mobileMenu.style.display === 'block') {
+       mobileMenu.style.display = 'none';
+     } else {
+       mobileMenu.style.display = 'block';
+     }
+   });
+
+   // Close mobile menu on link click
+   document.querySelectorAll('#mobile-menu a').forEach(link => {
+     link.addEventListener('click', () => {
+       mobileMenu.style.display = 'none';
+     });
+   });
+
+   // Header slideshow logic
+   document.addEventListener('DOMContentLoaded', () => {
+     const slides = document.querySelectorAll('.header-slide');
+     let current = 0;
+     const total = slides.length;
+     function showSlide(index) {
+       slides.forEach((slide, i) => {
+         slide.classList.toggle('active', i === index);
+       });
+     }
+     function nextSlide() {
+       current = (current + 1) % total;
+       showSlide(current);
+     }
+     setInterval(nextSlide, 5000); // Change slide every 5 seconds
+   });
+  </script>
+ </body>
+</html>

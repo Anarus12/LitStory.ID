@@ -1,0 +1,146 @@
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🏆 Leaderboard Pembaca Cerita</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-tr from-indigo-50 via-purple-50 to-pink-50 min-h-screen flex flex-col items-center p-4 sm:p-8">
+  <header class="mb-8 text-center max-w-4xl w-full">
+    <h1 class="text-4xl sm:text-5xl font-extrabold text-indigo-700 drop-shadow-md flex items-center justify-center gap-3">
+      <span>🏆</span> Leaderboard Pembaca Cerita
+    </h1>
+    <p class="mt-2 text-indigo-600 font-medium text-sm sm:text-base">
+      Lihat siapa yang paling aktif dan berprestasi di kategori Anak Muda dan Keluarga
+    </p>
+  </header>
+
+  <main class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10">
+    <!-- Anak Muda Section -->
+    <section class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+      <h2 class="text-2xl font-semibold text-indigo-700 mb-4 border-b-4 border-pink-400 pb-2">
+        Anak Muda
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left text-gray-700">
+          <thead>
+            <tr class="bg-indigo-100 text-indigo-800 uppercase text-sm font-semibold">
+              <th scope="col" class="px-4 py-3 w-12">#</th>
+              <th scope="col" class="px-4 py-3">Nama</th>
+              <th scope="col" class="px-4 py-3 w-20">Usia</th>
+              <th scope="col" class="px-4 py-3 w-24">Poin</th>
+            </tr>
+          </thead>
+          <tbody id="anakMudaBody" class="divide-y divide-indigo-100"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Keluarga Section -->
+    <section class="bg-white rounded-2xl shadow-lg p-6 flex flex-col">
+      <h2 class="text-2xl font-semibold text-indigo-700 mb-4 border-b-4 border-pink-400 pb-2">
+        Keluarga
+      </h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-left text-gray-700">
+          <thead>
+            <tr class="bg-indigo-100 text-indigo-800 uppercase text-sm font-semibold">
+              <th scope="col" class="px-4 py-3 w-12">#</th>
+              <th scope="col" class="px-4 py-3">Nama Keluarga</th>
+              <th scope="col" class="px-4 py-3 w-28">Usia Rata-rata</th>
+              <th scope="col" class="px-4 py-3 w-24">Poin</th>
+            </tr>
+          </thead>
+          <tbody id="keluargaBody" class="divide-y divide-indigo-100"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const anakMudaData = [
+      { nama: "Rizky Pratama", usia: 21, poin: 980 },
+      { nama: "Sari Dewi", usia: 19, poin: 870 },
+      { nama: "Dimas Arya", usia: 23, poin: 860 },
+      { nama: "Nadia Putri", usia: 20, poin: 840 },
+      { nama: "Fajar Nugroho", usia: 22, poin: 830 },
+      { nama: "Lia Amalia", usia: 18, poin: 810 },
+      { nama: "Bayu Santoso", usia: 24, poin: 790 },
+      { nama: "Intan Permata", usia: 21, poin: 780 },
+      { nama: "Rendi Saputra", usia: 20, poin: 770 },
+      { nama: "Maya Sari", usia: 19, poin: 760 },
+      { nama: "Aditya Wicaksono", usia: 22, poin: 750 },
+      { nama: "Putri Anggraini", usia: 23, poin: 740 },
+      { nama: "Hendra Gunawan", usia: 21, poin: 730 },
+      { nama: "Dewi Lestari", usia: 20, poin: 720 },
+      { nama: "Yoga Prasetyo", usia: 24, poin: 710 }
+    ];
+
+    const keluargaData = [
+      { namaKeluarga: "Keluarga Santoso", usiaRata: 38, poin: 1950 },
+      { namaKeluarga: "Keluarga Wijaya", usiaRata: 42, poin: 1880 },
+      { namaKeluarga: "Keluarga Pratama", usiaRata: 35, poin: 1820 },
+      { namaKeluarga: "Keluarga Putri", usiaRata: 40, poin: 1790 },
+      { namaKeluarga: "Keluarga Gunawan", usiaRata: 37, poin: 1750 },
+      { namaKeluarga: "Keluarga Lestari", usiaRata: 39, poin: 1700 },
+      { namaKeluarga: "Keluarga Saputra", usiaRata: 36, poin: 1680 },
+      { namaKeluarga: "Keluarga Dewi", usiaRata: 41, poin: 1650 },
+      { namaKeluarga: "Keluarga Prasetyo", usiaRata: 38, poin: 1600 },
+      { namaKeluarga: "Keluarga Amalia", usiaRata: 34, poin: 1580 },
+      { namaKeluarga: "Keluarga Nugroho", usiaRata: 39, poin: 1550 },
+      { namaKeluarga: "Keluarga Arya", usiaRata: 37, poin: 1520 },
+      { namaKeluarga: "Keluarga Dewi Sari", usiaRata: 40, poin: 1500 },
+      { namaKeluarga: "Keluarga Pratama Jaya", usiaRata: 36, poin: 1480 },
+      { namaKeluarga: "Keluarga Santoso Wijaya", usiaRata: 38, poin: 1450 }
+    ];
+
+    function renderTable(data, tbodyId, isKeluarga = false) {
+      const tbody = document.getElementById(tbodyId);
+      tbody.innerHTML = "";
+      data.forEach((item, index) => {
+        const tr = document.createElement("tr");
+        tr.className = index % 2 === 0 ? "bg-indigo-50" : "bg-white";
+
+        const nomorTd = document.createElement("td");
+        nomorTd.className = "px-4 py-3 font-semibold text-indigo-700";
+        nomorTd.textContent = index + 1;
+
+        const namaTd = document.createElement("td");
+        namaTd.className = "px-4 py-3 font-medium text-indigo-900";
+        namaTd.textContent = isKeluarga ? item.namaKeluarga : item.nama;
+
+        const usiaTd = document.createElement("td");
+        usiaTd.className = "px-4 py-3 font-semibold text-indigo-700 text-center";
+        usiaTd.textContent = isKeluarga ? item.usiaRata + " th" : item.usia + " th";
+
+        const poinTd = document.createElement("td");
+        poinTd.className = "px-4 py-3 font-bold text-pink-600 text-center";
+        poinTd.textContent = item.poin.toLocaleString();
+
+        tr.appendChild(nomorTd);
+        tr.appendChild(namaTd);
+        tr.appendChild(usiaTd);
+        tr.appendChild(poinTd);
+
+        tbody.appendChild(tr);
+      });
+    }
+
+    renderTable(anakMudaData, "anakMudaBody", false);
+    renderTable(keluargaData, "keluargaBody", true);
+  </script>
+</body>
+</html>

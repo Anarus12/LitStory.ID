@@ -1,0 +1,1098 @@
+<html class="scroll-smooth" lang="id">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   LitStory.ID - Platform Literasi Digital Interaktif
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+      font-family: 'Roboto', sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+    /* Fade-in animation */
+    .fade-in {
+      animation: fadeIn 0.8s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+    /* Slide-up animation */
+    .slide-up {
+      animation: slideUp 0.8s ease forwards;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Button hover scale with smooth transition */
+    button {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    button:hover:not(:disabled) {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(249, 132, 12, 0.4);
+    }
+    /* Smooth color transition for links */
+    a {
+      transition: color 0.3s ease;
+    }
+    /* Navbar link underline animation */
+    nav a {
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: #fb923c; /* orange-400 */
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+  </style>
+ </head>
+ <body class="bg-white text-sky-800 min-h-screen flex flex-col">
+  <!-- Navbar -->
+  <nav class="bg-gray-800 shadow-md sticky top-0 z-50 fade-in">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+     <a class="fade-in" href="#home" style="animation-delay: 0.1s;">
+      <img alt="Logo LitStory.ID berupa tulisan LitStory.ID dengan warna oranye dan biru di latar belakang putih" class="h-10" height="40" src="phot.png" width="100"/>
+     </a>
+     <div class="hidden md:flex space-x-8 font-medium text-gray-200">
+      <a class="hover:text-orange-400 transition fade-in" href="#home" style="animation-delay: 0.15s;">
+       Beranda
+      </a>
+      <a class="hover:text-orange-400 transition fade-in" href="#stories" style="animation-delay: 0.2s;">
+       Cerita
+      </a>
+      <a class="hover:text-orange-400 transition restricted fade-in" href="#challenges" style="animation-delay: 0.25s;">
+       Tantangan
+      </a>
+      <a class="hover:text-orange-400 transition restricted fade-in" href="#leaderboard" style="animation-delay: 0.3s;">
+       Leaderboard
+      </a>
+      <a class="hover:text-orange-400 transition restricted fade-in" href="rewards.html" style="animation-delay: 0.35s;">
+       Go to Rewards
+      </a>
+      <a class="hover:text-orange-400 transition restricted fade-in" href="#write" style="animation-delay: 0.4s;">
+       Tulis Cerita
+      </a>
+      <a class="hover:text-orange-400 transition restricted fade-in" href="#guide" style="animation-delay: 0.45s;">
+       Panduan
+      </a>
+     </div>
+     <div class="hidden md:flex items-center space-x-4 fade-in" style="animation-delay: 0.5s;">
+      <button class="text-gray-200 border border-gray-200 px-3 py-1 rounded hover:bg-orange-400 hover:text-white transition font-semibold" id="login-btn">
+       Login
+      </button>
+      <button class="bg-orange-400 text-white px-3 py-1 rounded font-semibold hover:bg-orange-500 transition" id="register-btn">
+       Daftar
+      </button>
+      <button class="hidden text-gray-200 border border-gray-200 px-3 py-1 rounded hover:bg-orange-400 hover:text-white transition font-semibold" id="logout-btn">
+       Logout
+      </button>
+     </div>
+     <div class="md:hidden fade-in" style="animation-delay: 0.55s;">
+      <button aria-label="Toggle menu" class="text-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-400" id="mobile-menu-button">
+       <i class="fas fa-bars fa-lg">
+       </i>
+      </button>
+     </div>
+    </div>
+   </div>
+   <div class="hidden md:hidden bg-gray-900" id="mobile-menu">
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition" href="#home">
+     Beranda
+    </a>
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition" href="#stories">
+     Cerita
+    </a>
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition restricted" href="#challenges">
+     Tantangan
+    </a>
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition restricted" href="#leaderboard">
+     Leaderboard
+    </a>
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition restricted" href="#rewards">
+     Reward
+    </a>
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition restricted" href="#write">
+     Tulis Cerita
+    </a>
+    <a class="block px-4 py-2 border-b border-gray-700 text-gray-200 font-medium hover:bg-orange-400 hover:text-white transition restricted" href="#guide">
+     Panduan
+    </a>
+    <div class="flex space-x-4 px-4 py-3">
+     <button class="flex-1 text-gray-200 border border-gray-200 rounded px-3 py-1 font-semibold hover:bg-orange-400 hover:text-white transition" id="mobile-login-btn">
+      Login
+     </button>
+     <button class="flex-1 bg-orange-400 text-white rounded px-3 py-1 font-semibold hover:bg-orange-500 transition" id="mobile-register-btn">
+      Daftar
+     </button>
+     <button class="hidden flex-1 text-gray-200 border border-gray-200 rounded px-3 py-1 font-semibold hover:bg-orange-400 hover:text-white transition" id="mobile-logout-btn">
+      Logout
+     </button>
+    </div>
+   </div>
+  </nav>
+  <!-- Mode Selection -->
+  <section class="bg-sky-50 py-6 px-4 max-w-7xl mx-auto w-full" id="mode-selection">
+   <h2 class="text-center text-3xl font-poppins font-semibold text-sky-900 mb-6 fade-in" style="animation-delay: 0.6s;">
+    Pilih Mode Tampilan
+   </h2>
+   <div class="flex flex-col sm:flex-row justify-center gap-6 max-w-4xl mx-auto">
+    <button aria-label="Mode Remaja" class="mode-btn flex-1 bg-orange-300 hover:bg-orange-400 text-white font-semibold rounded-lg py-4 shadow-lg focus:outline-none focus:ring-4 focus:ring-orange-400 transition slide-up" data-mode="teen" style="animation-delay: 0.65s;">
+     <i class="fas fa-child fa-2x mb-2">
+     </i>
+     <span class="block text-lg">
+      Remaja
+     </span>
+    </button>
+    <button aria-label="Mode Lansia" class="mode-btn flex-1 bg-sky-300 hover:bg-sky-400 text-white font-semibold rounded-lg py-4 shadow-lg focus:outline-none focus:ring-4 focus:ring-sky-400 transition slide-up" data-mode="senior" style="animation-delay: 0.7s;">
+     <i class="fas fa-blind fa-2x mb-2">
+     </i>
+     <span class="block text-lg">
+      Lansia
+     </span>
+    </button>
+    <button aria-label="Mode Dewasa/Pendidik" class="mode-btn flex-1 bg-lemon-400 hover:bg-lemon-500 text-white font-semibold rounded-lg py-4 shadow-lg focus:outline-none focus:ring-4 focus:ring-yellow-400 transition slide-up" data-mode="adult" style="--tw-bg-opacity:1; background-color:#f9d976; animation-delay: 0.75s;">
+     <i class="fas fa-chalkboard-teacher fa-2x mb-2">
+     </i>
+     <span class="block text-lg">
+      Dewasa/Pendidik
+     </span>
+    </button>
+   </div>
+  </section>
+  <!-- Hero Section -->
+  <section class="relative bg-sky-100 py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full rounded-lg shadow-lg transition-colors duration-500 fade-in" id="home" style="animation-delay: 0.8s;">
+   <div class="flex flex-col-reverse md:flex-row items-center gap-10 max-w-7xl mx-auto">
+    <div class="flex-1 text-center md:text-left slide-up" style="animation-delay: 0.85s;">
+     <h1 class="text-4xl sm:text-5xl font-poppins font-bold text-sky-900 mb-4 leading-tight">
+      Literasi untuk Semua, Tanpa memandang usia!
+     </h1>
+     <p class="text-lg sm:text-xl text-sky-800 mb-8 max-w-xl mx-auto md:mx-0">
+      Temukan cerita interaktif, dapatkan poin, dan tumbuh bersama keluarga.
+     </p>
+     <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4 max-w-xs mx-auto md:mx-0">
+      <button class="bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-3 px-6 shadow-lg transition flex items-center justify-center gap-2 focus:outline-none focus:ring-4 focus:ring-orange-400" id="start-now">
+       <i class="fas fa-gamepad">
+       </i>
+       Mulai Sekarang
+      </button>
+      <button class="bg-white border border-orange-400 text-orange-500 font-semibold rounded-lg py-3 px-6 shadow hover:bg-orange-50 transition flex items-center justify-center gap-2 focus:outline-none focus:ring-4 focus:ring-orange-400" id="listen-story">
+       <i class="fas fa-headphones">
+       </i>
+       Dengarkan Cerita
+      </button>
+     </div>
+    </div>
+    <div class="flex-1 max-w-md mx-auto md:mx-0 slide-up" style="animation-delay: 0.9s;">
+     <img alt="Ilustrasi keluarga berbagai usia sedang membaca cerita interaktif bersama di ruang tamu yang cerah dan nyaman" class="rounded-lg shadow-lg w-full h-auto object-cover" height="300" loading="lazy" src="Poster Literasi Ilustratif _ Template Canva.jpeg" width="400"/>
+    </div>
+   </div>
+  </section>
+  <!-- Cerita Interaktif Berdasarkan Kategori Usia -->
+  <section class="py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full" id="stories">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-12 text-center fade-in" style="animation-delay: 0.95s;">
+    Cerita Interaktif Berdasarkan Kategori Usia
+   </h2>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <article class="bg-white rounded-lg shadow-lg p-6 flex flex-col slide-up" style="animation-delay: 1s;">
+     <img alt="Ilustrasi anak-anak ceria sedang mendengarkan dongeng dan petualangan edukatif di taman bermain yang penuh warna" class="rounded-md mb-4 object-cover w-full h-48" height="250" loading="lazy" src="anak buku.jpg" width="400"/>
+     <h3 class="text-xl font-poppins font-semibold text-sky-900 mb-2">
+      Anak-anak
+     </h3>
+     <p class="flex-grow text-sky-800 text-base leading-relaxed">
+      Dongeng dan petualangan edukatif yang menyenangkan dan mudah dipahami untuk anak-anak.
+     </p>
+     <button class="mt-4 bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-2 px-4 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 explore-btn" data-url="anak.html">
+      Jelajahi Cerita Anak
+     </button>
+    </article>
+    <article class="bg-white rounded-lg shadow-lg p-6 flex flex-col slide-up" style="animation-delay: 1.05s;">
+     <img alt="Ilustrasi remaja sedang membaca buku fiksi, sejarah, dan sains populer dengan latar belakang perpustakaan modern" class="rounded-md mb-4 object-cover w-full h-48" height="250" loading="lazy" src="remaja baca buku.jpg" width="400"/>
+     <h3 class="text-xl font-poppins font-semibold text-sky-900 mb-2">
+      Remaja
+     </h3>
+     <p class="flex-grow text-sky-800 text-base leading-relaxed">
+      Fiksi remaja, sejarah, dan sains populer yang menarik dan penuh warna.
+     </p>
+     <button class="mt-4 bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-2 px-4 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 explore-btn" data-url="remaja.html">
+      Jelajahi Cerita Remaja
+     </button>
+    </article>
+    <article class="bg-white rounded-lg shadow-lg p-6 flex flex-col slide-up" style="animation-delay: 1.1s;">
+     <img alt="Ilustrasi orang dewasa sedang membaca artikel literasi digital, keuangan keluarga, dan parenting di ruang kerja modern" class="rounded-md mb-4 object-cover w-full h-48" height="250" loading="lazy" src="dewasa.jpg" width="400"/>
+     <h3 class="text-xl font-poppins font-semibold text-sky-900 mb-2">
+      Dewasa
+     </h3>
+     <p class="flex-grow text-sky-800 text-base leading-relaxed">
+      Literasi digital, keuangan keluarga, dan parenting untuk pendalaman materi.
+     </p>
+     <button class="mt-4 bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-2 px-4 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 explore-btn" data-url="dewasa.html">
+      Jelajahi Cerita Dewasa
+     </button>
+    </article>
+    <article class="bg-white rounded-lg shadow-lg p-6 flex flex-col slide-up" style="animation-delay: 1.15s;">
+     <img alt="Ilustrasi lansia sedang mendengarkan cerita audio pendek dan kisah inspiratif budaya lokal di ruang tamu yang nyaman" class="rounded-md mb-4 object-cover w-full h-48" height="250" loading="lazy" src="lansia.jpg" width="400"/>
+     <h3 class="text-xl font-poppins font-semibold text-sky-900 mb-2">
+      Lansia
+     </h3>
+     <p class="flex-grow text-sky-800 text-base leading-relaxed">
+      Cerita audio pendek, kisah inspiratif, dan cerita budaya lokal yang mudah diakses.
+     </p>
+     <button class="mt-4 bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-2 px-4 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 explore-btn" data-url="lansia.html">
+      Jelajahi Cerita Lansia
+     </button>
+    </article>
+   </div>
+  </section>
+  <!-- Fitur Audio-Lit -->
+  <section class="bg-sky-50 py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full rounded-lg shadow-lg fade-in" id="audio-lit" style="animation-delay: 1.2s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center">
+    Fitur Audio-Lit
+   </h2>
+   <div class="flex flex-col md:flex-row gap-10 max-w-6xl mx-auto">
+    <div class="flex-1 space-y-6 slide-up" style="animation-delay: 1.25s;">
+     <p class="text-sky-800 text-lg leading-relaxed">
+      Semua cerita bisa didengar dengan narator yang bisa dipilih sesuai preferensi Anda.
+     </p>
+     <div class="space-y-4">
+      <label class="block font-semibold text-sky-900" for="narrator-select">
+       Pilih Narator:
+      </label>
+      <select aria-label="Pilih narator formal atau logat daerah" class="w-full border border-sky-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-400" id="narrator-select">
+       <option value="id-ID-Standard-A">
+        Narator Formal (Bahasa Indonesia)
+       </option>
+       <option value="id-ID-Wavenet-B">
+        Narator Wanita (Bahasa Indonesia)
+       </option>
+       <option value="jawa">
+        Logat Jawa
+       </option>
+       <option value="minang">
+        Logat Minang
+       </option>
+       <option value="batak">
+        Logat Batak
+       </option>
+       <option value="sunda">
+        Logat Sunda
+       </option>
+      </select>
+     </div>
+     <div class="flex flex-col sm:flex-row gap-4">
+      <button class="flex-1 bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-3 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 flex items-center justify-center gap-2" id="toggle-night-mode">
+       <i class="fas fa-moon">
+       </i>
+       Mode Malam
+      </button>
+      <button class="flex-1 bg-sky-300 hover:bg-sky-400 text-sky-900 font-semibold rounded-lg py-3 shadow transition focus:outline-none focus:ring-4 focus:ring-sky-400 flex items-center justify-center gap-2" id="toggle-large-text">
+       <i class="fas fa-text-height">
+       </i>
+       Teks Besar
+      </button>
+     </div>
+    </div>
+    <div class="flex-1 flex justify-center items-center slide-up" style="animation-delay: 1.3s;">
+     <img alt="Ilustrasi fitur audio-lit dengan berbagai pilihan narator formal dan logat daerah, menampilkan tombol mode malam dan teks besar" class="rounded-lg shadow-lg w-full max-w-md object-cover" height="300" loading="lazy" src="audio.jpg" width="400"/>
+    </div>
+   </div>
+  </section>
+  <!-- AI Rekomendasi -->
+  <section class="py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full fade-in" id="ai-recommendation" style="animation-delay: 1.35s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center">
+    AI Rekomendasi
+   </h2>
+   <div class="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto text-sky-800 text-center space-y-6 slide-up" style="animation-delay: 1.4s;">
+    <p class="text-lg leading-relaxed">
+     Sistem kami menganalisis preferensi pengguna berdasarkan minat, usia, dan topik untuk menyediakan cerita dan tantangan yang personal dan relevan.
+    </p>
+    <button class="bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-3 px-6 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400" data-url="recommendation.html" id="recommendation-btn">
+     Lihat Rekomendasi Saya
+    </button>
+    <img alt="Ilustrasi AI yang menganalisis preferensi pengguna untuk merekomendasikan cerita dan tantangan personal" class="mx-auto rounded-md shadow-md object-cover w-full max-w-sm" height="250" loading="lazy" src="Ai.jpg" width="400"/>
+   </div>
+  </section>
+  <!-- Tantangan Keluarga -->
+  <section class="bg-sky-50 py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full rounded-lg shadow-lg fade-in" id="challenges" style="animation-delay: 1.45s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center"> 
+    Tantangan Keluarga
+   </h2>
+   <div class="max-w-5xl mx-auto space-y-10">
+    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center gap-6 slide-up" style="animation-delay: 1.5s;">
+     <img alt="Ilustrasi keluarga bahagia mendapatkan XP dan badge setelah membaca bersama" class="rounded-md shadow-md w-full md:w-1/2 object-cover" height="200" loading="lazy" src="Badge Stickers - Digital Download.jpeg" width="300"/>
+     <div class="md:flex-1 text-sky-800">
+      <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+       Sistem XP + Badge
+      </h3>
+      <p class="mb-4 leading-relaxed">
+       Keluarga yang membaca bersama dapat mengumpulkan poin XP dan mendapatkan badge sebagai penghargaan atas pencapaian mereka.
+      </p>
+      <button class="bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-2 px-5 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 challenge-btn" data-url="challenges.html">
+       Mulai Tantangan
+      </button>
+     </div>
+    </div>
+    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row-reverse items-center gap-6 slide-up" style="animation-delay: 1.55s;">
+     <img alt="Ilustrasi leaderboard kompetisi membaca antar RT, desa, dan komunitas kampus" class="rounded-md shadow-md w-full md:w-1/2 object-cover" height="200" loading="lazy" src="le.jpeg" width="300"/>
+     <div class="md:flex-1 text-sky-800">
+      <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+       Leaderboard Antar Komunitas
+      </h3>
+      <p class="mb-4 leading-relaxed">
+       Kompetisi seru antar RT, desa, atau komunitas kampus untuk memotivasi keluarga dan komunitas dalam meningkatkan literasi bersama.
+      </p>
+      <button class="bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-2 px-5 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 leaderboard-btn" data-url="leaderboard.html">
+       Lihat Leaderboard
+      </button>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Leaderboard Section -->
+  <section class="py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full fade-in" id="leaderboard" style="animation-delay: 1.6s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center">
+    Leaderboard Keluarga Teratas
+   </h2>
+   <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6 overflow-x-auto slide-up" style="animation-delay: 1.65s;">
+    <table class="w-full text-left table-auto border-collapse">
+     <thead>
+      <tr class="bg-sky-200 text-sky-900">
+       <th class="py-3 px-4 border border-sky-300">
+        Posisi
+       </th>
+       <th class="py-3 px-4 border border-sky-300">
+        Nama Keluarga
+       </th>
+       <th class="py-3 px-4 border border-sky-300">
+        XP
+       </th>
+       <th class="py-3 px-4 border border-sky-300">
+        Badge
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr class="hover:bg-sky-50">
+       <td class="py-3 px-4 border border-sky-300 font-semibold">
+        1
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        Keluarga Santoso
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        1500
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        🏆 Juara 1
+       </td>
+      </tr>
+      <tr class="hover:bg-sky-50 bg-sky-50">
+       <td class="py-3 px-4 border border-sky-300 font-semibold">
+        2
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        Keluarga Wijaya
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        1350
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        🥈 Juara 2
+       </td>
+      </tr>
+      <tr class="hover:bg-sky-50">
+       <td class="py-3 px-4 border border-sky-300 font-semibold">
+        3
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        Keluarga Putri
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        1200
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        🥉 Juara 3
+       </td>
+      </tr>
+      <tr class="hover:bg-sky-50 bg-sky-50">
+       <td class="py-3 px-4 border border-sky-300 font-semibold">
+        4
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        Keluarga Rahman
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        1100
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        🎖️
+       </td>
+      </tr>
+      <tr class="hover:bg-sky-50">
+       <td class="py-3 px-4 border border-sky-300 font-semibold">
+        5
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        Keluarga Dewi
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        1050
+       </td>
+       <td class="py-3 px-4 border border-sky-300">
+        🎖️
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+  </section>
+  <!-- Rewards Section -->
+  <section class="bg-sky-50 py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full rounded-lg shadow-lg fade-in" id="rewards" style="animation-delay: 1.7s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center">
+    Tukarkan Poin Anda dengan Reward Menarik
+   </h2>
+   <div class="max-w-5xl mx-auto space-y-10">
+    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col md:flex-row items-center gap-6 slide-up" style="animation-delay: 1.75s;">
+     <div class="md:flex-1 text-sky-800">
+      <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+       Poin Anda Saat Ini:
+       <span class="text-orange-500" id="user-points">
+        1200
+       </span>
+      </h3>
+      <p class="mb-4 leading-relaxed">
+       Kumpulkan poin dengan membaca dan berpartisipasi dalam tantangan. Tukarkan poin Anda dengan reward menarik berikut:
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-sky-800">
+       <li>
+        <strong>
+         1000 Poin
+        </strong>
+        - Voucher Buku Digital
+       </li>
+       <li>
+        <strong>
+         2000 Poin
+        </strong>
+        - Merchandise Eksklusif LitStory.ID
+       </li>
+       <li>
+        <strong>
+         3000 Poin
+        </strong>
+        - Akses Premium Cerita Interaktif
+       </li>
+      </ul>
+     </div>
+     <div class="md:flex-1 grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <button class="bg-orange-400 text-white rounded-lg p-4 flex flex-col items-center shadow hover:bg-orange-500 transition reward-item" data-points="1000" data-url="reward-voucher.html">
+       <img alt="Voucher buku digital dengan desain modern dan warna oranye" class="w-20 h-20 mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/085cc206-2722-4c71-6cef-d8db69699441.jpg" width="80"/>
+       <span class="font-semibold">
+        Voucher Buku Digital
+       </span>
+       <span class="mt-1 text-sm">
+        1000 Poin
+       </span>
+      </button>
+      <button class="bg-orange-400 text-white rounded-lg p-4 flex flex-col items-center shadow hover:bg-orange-500 transition reward-item" data-points="2000" data-url="reward-merchandise.html">
+       <img alt="Merchandise eksklusif LitStory.ID berupa kaos dan totebag dengan desain ceria" class="w-20 h-20 mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/23eef73d-ae78-44c0-f175-b6a657e25142.jpg" width="80"/>
+       <span class="font-semibold">
+        Merchandise Eksklusif
+       </span>
+       <span class="mt-1 text-sm">
+        2000 Poin
+       </span>
+      </button>
+      <button class="bg-orange-400 text-white rounded-lg p-4 flex flex-col items-center shadow hover:bg-orange-500 transition reward-item" data-points="3000" data-url="reward-premium.html">
+       <img alt="Akses premium ke cerita interaktif dengan ikon bintang emas" class="w-20 h-20 mb-3" height="80" loading="lazy" src="https://storage.googleapis.com/a1aa/image/fc2b59e6-7c8d-4035-f7dc-0821212d7a41.jpg" width="80"/>
+       <span class="font-semibold">
+        Akses Premium
+       </span>
+       <span class="mt-1 text-sm">
+        3000 Poin
+       </span>
+      </button>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Tulis Cerita -->
+  <section class="py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full fade-in" id="write" style="animation-delay: 1.8s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center">
+    Tulis Cerita Anda
+   </h2>
+   <form aria-label="Formulir menulis cerita interaktif" class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 space-y-6 slide-up" id="story-form" style="animation-delay: 1.85s;">
+    <div>
+     <label class="block text-sky-900 font-semibold mb-2" for="story-title">
+      Judul Cerita
+     </label>
+     <input class="w-full border border-sky-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-orange-400" id="story-title" name="story-title" placeholder="Masukkan judul cerita Anda" required="" type="text"/>
+    </div>
+    <div>
+     <label class="block text-sky-900 font-semibold mb-2" for="story-age-category">
+      Kategori Usia
+     </label>
+     <select class="w-full border border-sky-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-orange-400" id="story-age-category" name="story-age-category" required="">
+      <option disabled="" selected="" value="">
+       Pilih kategori usia
+      </option>
+      <option value="anak">
+       Anak-anak
+      </option>
+      <option value="remaja">
+       Remaja
+      </option>
+      <option value="dewasa">
+       Dewasa
+      </option>
+      <option value="lansia">
+       Lansia
+      </option>
+     </select>
+    </div>
+    <div>
+     <label class="block text-sky-900 font-semibold mb-2" for="story-format">
+      Format Cerita
+     </label>
+     <select class="w-full border border-sky-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-orange-400" id="story-format" name="story-format" required="">
+      <option disabled="" selected="" value="">
+       Pilih format cerita
+      </option>
+      <option value="teks">
+       Teks
+      </option>
+      <option value="audio">
+       Audio (Bahasa Indonesia)
+      </option>
+      <option value="visual">
+       Visual Interaktif
+      </option>
+      <option value="kuis">
+       Kuis
+      </option>
+     </select>
+    </div>
+    <div>
+     <label class="block text-sky-900 font-semibold mb-2" for="story-content">
+      Isi Cerita
+     </label>
+     <textarea class="w-full border border-sky-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-orange-400" id="story-content" name="story-content" placeholder="Tulis cerita Anda di sini..." required="" rows="6"></textarea>
+    </div>
+    <button class="bg-orange-400 hover:bg-orange-500 text-white font-semibold rounded-lg py-3 px-6 shadow transition focus:outline-none focus:ring-4 focus:ring-orange-400 w-full sm:w-auto" id="submit-story-btn" type="submit">
+     Kirim Cerita
+    </button>
+   </form>
+  </section>
+  <!-- Panduan -->
+  <section class="bg-sky-50 py-16 px-6 sm:px-12 max-w-7xl mx-auto w-full rounded-lg shadow-lg fade-in" id="guide" style="animation-delay: 1.9s;">
+   <h2 class="text-3xl font-poppins font-semibold text-sky-900 mb-8 text-center">
+    Panduan Penggunaan
+   </h2>
+   <div class="max-w-4xl mx-auto space-y-8 text-sky-800 text-lg leading-relaxed slide-up" style="animation-delay: 1.95s;">
+    <article>
+     <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+      Navigasi Mudah
+     </h3>
+     <p>
+      Gunakan navbar di atas untuk mengakses berbagai fitur seperti cerita, tantangan, leaderboard, reward, dan menulis cerita. Tombol besar dan ikon memudahkan navigasi untuk semua usia.
+     </p>
+    </article>
+    <article>
+     <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+      Mode Tampilan
+     </h3>
+     <p>
+      Pilih mode tampilan sesuai usia Anda untuk pengalaman terbaik: mode ceria untuk remaja, teks besar dan audio otomatis untuk lansia, dan tampilan rapi untuk dewasa/pendidik.
+     </p>
+    </article>
+    <article>
+     <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+      Fitur Audio-Lit
+     </h3>
+     <p>
+      Dengarkan semua cerita dengan narator pilihan Anda. Aktifkan mode malam dan teks besar untuk kenyamanan membaca dan mendengarkan.
+     </p>
+    </article>
+    <article>
+     <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+      Tantangan Keluarga
+     </h3>
+     <p>
+      Ikuti tantangan membaca bersama keluarga dan raih XP serta badge. Lihat leaderboard komunitas untuk motivasi tambahan.
+     </p>
+    </article>
+    <article>
+     <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+      Leaderboard &amp; Reward
+     </h3>
+     <p>
+      Pantau posisi keluarga Anda di leaderboard dan tukarkan poin yang dikumpulkan dengan reward menarik untuk meningkatkan semangat literasi.
+     </p>
+    </article>
+    <article>
+     <h3 class="text-2xl font-poppins font-semibold mb-3 text-sky-900">
+      Tulis Cerita
+     </h3>
+     <p>
+      Bagikan cerita Anda dalam berbagai format. Cerita Anda akan membantu memperkaya koleksi dan menginspirasi pengguna lain.
+     </p>
+    </article>
+   </div>
+  </section>
+  <!-- Footer -->
+  <footer class="bg-sky-200 text-sky-900 py-8 mt-auto fade-in" style="animation-delay: 2s;">
+   <div class="max-w-7xl mx-auto px-6 sm:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+    <p class="text-sm">
+     © 2025 LitStory.ID. Semua hak cipta dilindungi.
+    </p>
+    <div class="flex space-x-6 text-xl">
+     <a aria-label="Facebook" class="hover:text-orange-400 transition" href="https://facebook.com" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-facebook-square">
+      </i>
+     </a>
+     <a aria-label="Twitter" class="hover:text-orange-400 transition" href="https://twitter.com" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-twitter-square">
+      </i>
+     </a>
+     <a aria-label="Instagram" class="hover:text-orange-400 transition" href="https://instagram.com" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-instagram-square">
+      </i>
+     </a>
+     <a aria-label="YouTube" class="hover:text-orange-400 transition" href="https://youtube.com" rel="noopener noreferrer" target="_blank">
+      <i class="fab fa-youtube-square">
+      </i>
+     </a>
+    </div>
+   </div>
+  </footer>
+  <script>
+   // Mobile menu toggle
+   const mobileMenuBtn = document.getElementById('mobile-menu-button');
+   const mobileMenu = document.getElementById('mobile-menu');
+   mobileMenuBtn.addEventListener('click', () => {
+     mobileMenu.classList.toggle('hidden');
+   });
+
+   // Mode selection logic
+   const modeButtons = document.querySelectorAll('.mode-btn');
+   const body = document.body;
+
+   function clearModeClasses() {
+     body.classList.remove('mode-teen', 'mode-senior', 'mode-adult');
+     body.style.fontSize = '';
+     body.style.backgroundColor = '';
+     body.style.color = '';
+     const audioNarrator = document.getElementById('audio-narrator');
+     if(audioNarrator) {
+       audioNarrator.pause();
+       audioNarrator.remove();
+     }
+     document.querySelectorAll('button').forEach(b => {
+       b.classList.remove('rounded-xl', 'text-lg', 'rounded-md', 'text-xl', 'rounded', 'text-base');
+       b.style.transform = '';
+       b.onmouseenter = null;
+       b.onmouseleave = null;
+       b.classList.add('rounded', 'text-base');
+       b.classList.add('shadow-lg');
+     });
+     document.querySelectorAll('section, article').forEach(el => {
+       el.classList.remove('border', 'border-sky-300');
+       el.classList.add('shadow-lg');
+     });
+     document.querySelectorAll('button').forEach(b => {
+       b.classList.add('shadow-lg');
+     });
+   }
+
+   modeButtons.forEach(btn => {
+     btn.addEventListener('click', () => {
+       clearModeClasses();
+       const mode = btn.getAttribute('data-mode');
+       if (mode === 'teen') {
+         body.classList.add('mode-teen');
+         document.querySelectorAll('button').forEach(b => {
+           b.classList.add('rounded-xl', 'text-lg');
+           b.style.transition = 'transform 0.2s ease';
+           b.onmouseenter = () => b.style.transform = 'scale(1.05)';
+           b.onmouseleave = () => b.style.transform = 'scale(1)';
+         });
+         body.style.backgroundColor = '#e0f2fe';
+       } else if (mode === 'senior') {
+         body.classList.add('mode-senior');
+         document.querySelectorAll('button').forEach(b => {
+           b.classList.remove('rounded-xl', 'text-lg');
+           b.style.transform = '';
+           b.onmouseenter = null;
+           b.onmouseleave = null;
+           b.classList.add('rounded-md', 'text-xl');
+         });
+         body.style.fontSize = '1.25rem';
+         document.querySelectorAll('section, article, button').forEach(el => {
+           el.classList.remove('shadow-lg', 'shadow-md', 'shadow');
+         });
+         const heroText = document.querySelector('#home h1');
+         if(heroText) {
+           const utterance = new SpeechSynthesisUtterance(heroText.textContent);
+           utterance.lang = 'id-ID';
+           speechSynthesis.cancel();
+           speechSynthesis.speak(utterance);
+         }
+       } else if (mode === 'adult') {
+         body.classList.add('mode-adult');
+         document.querySelectorAll('button').forEach(b => {
+           b.classList.remove('rounded-xl', 'text-lg');
+           b.style.transform = '';
+           b.onmouseenter = null;
+           b.onmouseleave = null;
+           b.classList.add('rounded', 'text-base');
+         });
+         body.style.fontSize = '';
+         document.querySelectorAll('section, article').forEach(el => {
+           el.classList.add('border', 'border-sky-300');
+         });
+         document.querySelectorAll('button').forEach(b => {
+           b.classList.remove('shadow-lg', 'shadow-md', 'shadow');
+         });
+         document.querySelectorAll('section, article').forEach(el => {
+           el.classList.remove('shadow-lg');
+         });
+       }
+     });
+   });
+
+   // Audio-Lit toggles
+   const nightModeBtn = document.getElementById('toggle-night-mode');
+   const largeTextBtn = document.getElementById('toggle-large-text');
+
+   nightModeBtn?.addEventListener('click', () => {
+     if(document.documentElement.classList.contains('dark')) {
+       document.documentElement.classList.remove('dark');
+       nightModeBtn.innerHTML = '<i class="fas fa-moon"></i> Mode Malam';
+     } else {
+       document.documentElement.classList.add('dark');
+       nightModeBtn.innerHTML = '<i class="fas fa-sun"></i> Mode Terang';
+     }
+   });
+
+   largeTextBtn?.addEventListener('click', () => {
+     if(document.body.classList.contains('text-lg')) {
+       document.body.classList.remove('text-lg');
+       largeTextBtn.innerHTML = '<i class="fas fa-text-height"></i> Teks Besar';
+     } else {
+       document.body.classList.add('text-lg');
+       largeTextBtn.innerHTML = '<i class="fas fa-text-height"></i> Teks Normal';
+     }
+   });
+
+   // Authentication state
+   let isLoggedIn = false;
+   let userPoints = 1200;
+
+   // Elements
+   const loginBtn = document.getElementById('login-btn');
+   const registerBtn = document.getElementById('register-btn');
+   const logoutBtn = document.getElementById('logout-btn');
+   const mobileLoginBtn = document.getElementById('mobile-login-btn');
+   const mobileRegisterBtn = document.getElementById('mobile-register-btn');
+   const mobileLogoutBtn = document.getElementById('mobile-logout-btn');
+
+   // Restricted links/buttons
+   const restrictedLinks = document.querySelectorAll('.restricted');
+   const audioLitSection = document.getElementById('audio-lit');
+   const aiRecommendationSection = document.getElementById('ai-recommendation');
+   const challengesSection = document.getElementById('challenges');
+   const leaderboardSection = document.getElementById('leaderboard');
+   const rewardsSection = document.getElementById('rewards');
+   const writeSection = document.getElementById('write');
+   const guideSection = document.getElementById('guide');
+   const storyForm = document.getElementById('story-form');
+   const narratorSelect = document.getElementById('narrator-select');
+   const toggleNightModeBtn = document.getElementById('toggle-night-mode');
+   const toggleLargeTextBtn = document.getElementById('toggle-large-text');
+
+   // Buttons that redirect to other pages
+   const exploreButtons = document.querySelectorAll('.explore-btn');
+   const challengeButtons = document.querySelectorAll('.challenge-btn');
+   const leaderboardButtons = document.querySelectorAll('.leaderboard-btn');
+   const recommendationBtn = document.getElementById('recommendation-btn');
+   const rewardItems = document.querySelectorAll('.reward-item');
+   const submitStoryBtn = document.getElementById('submit-story-btn');
+   const startNowBtn = document.getElementById('start-now');
+   const listenStoryBtn = document.getElementById('listen-story');
+
+   // Function to update UI based on login state
+   function updateUI() {
+     if (isLoggedIn) {
+       // Show logout, hide login/register
+       loginBtn.classList.add('hidden');
+       registerBtn.classList.add('hidden');
+       logoutBtn.classList.remove('hidden');
+       mobileLoginBtn.classList.add('hidden');
+       mobileRegisterBtn.classList.add('hidden');
+       mobileLogoutBtn.classList.remove('hidden');
+
+       // Enable restricted links
+       restrictedLinks.forEach(link => {
+         link.classList.remove('cursor-not-allowed', 'opacity-50');
+         link.onclick = null;
+       });
+
+       // Enable sections
+       [audioLitSection, aiRecommendationSection, challengesSection, leaderboardSection, rewardsSection, writeSection, guideSection].forEach(section => {
+         section.classList.remove('opacity-50', 'pointer-events-none');
+       });
+
+       // Enable form inputs and buttons
+       if(storyForm) {
+         Array.from(storyForm.elements).forEach(el => el.disabled = false);
+       }
+       if(narratorSelect) narratorSelect.disabled = false;
+       if(toggleNightModeBtn) {
+         toggleNightModeBtn.disabled = false;
+         toggleNightModeBtn.classList.remove('cursor-not-allowed', 'bg-opacity-50');
+       }
+       if(toggleLargeTextBtn) {
+         toggleLargeTextBtn.disabled = false;
+         toggleLargeTextBtn.classList.remove('cursor-not-allowed', 'bg-opacity-50');
+       }
+       rewardItems.forEach(item => {
+         item.classList.remove('cursor-not-allowed', 'bg-opacity-50');
+         item.querySelector('img').classList.remove('opacity-50');
+       });
+       exploreButtons.forEach(btn => btn.disabled = false);
+       challengeButtons.forEach(btn => btn.disabled = false);
+       leaderboardButtons.forEach(btn => btn.disabled = false);
+       if(recommendationBtn) {
+         recommendationBtn.disabled = false;
+         recommendationBtn.classList.remove('cursor-not-allowed', 'bg-opacity-50');
+       }
+       if(submitStoryBtn) submitStoryBtn.disabled = false;
+       if(startNowBtn) startNowBtn.disabled = false;
+       if(listenStoryBtn) listenStoryBtn.disabled = false;
+     } else {
+       // Show login/register, hide logout
+       loginBtn.classList.remove('hidden');
+       registerBtn.classList.remove('hidden');
+       logoutBtn.classList.add('hidden');
+       mobileLoginBtn.classList.remove('hidden');
+       mobileRegisterBtn.classList.remove('hidden');
+       mobileLogoutBtn.classList.add('hidden');
+
+       // Disable restricted links
+       restrictedLinks.forEach(link => {
+         link.classList.add('cursor-not-allowed', 'opacity-50');
+         link.onclick = (e) => {
+           e.preventDefault();
+           alert('Silakan login terlebih dahulu untuk mengakses fitur ini.');
+         };
+       });
+
+       // Disable sections
+       [audioLitSection, aiRecommendationSection, challengesSection, leaderboardSection, rewardsSection, writeSection, guideSection].forEach(section => {
+         section.classList.add('opacity-50', 'pointer-events-none');
+       });
+
+       // Disable form inputs and buttons
+       if(storyForm) {
+         Array.from(storyForm.elements).forEach(el => el.disabled = true);
+       }
+       if(narratorSelect) narratorSelect.disabled = true;
+       if(toggleNightModeBtn) {
+         toggleNightModeBtn.disabled = true;
+         toggleNightModeBtn.classList.add('cursor-not-allowed', 'bg-opacity-50');
+       }
+       if(toggleLargeTextBtn) {
+         toggleLargeTextBtn.disabled = true;
+         toggleLargeTextBtn.classList.add('cursor-not-allowed', 'bg-opacity-50');
+       }
+       rewardItems.forEach(item => {
+         item.classList.add('cursor-not-allowed', 'bg-opacity-50');
+         item.querySelector('img').classList.add('opacity-50');
+       });
+       exploreButtons.forEach(btn => btn.disabled = false); // Explore (Cerita) allowed without login
+       challengeButtons.forEach(btn => btn.disabled = true);
+       leaderboardButtons.forEach(btn => btn.disabled = true);
+       if(recommendationBtn) {
+         recommendationBtn.disabled = true;
+         recommendationBtn.classList.add('cursor-not-allowed', 'bg-opacity-50');
+       }
+       if(submitStoryBtn) submitStoryBtn.disabled = true;
+       if(startNowBtn) startNowBtn.disabled = false; // allowed without login
+       if(listenStoryBtn) listenStoryBtn.disabled = false; // allowed without login
+     }
+   }
+
+   // Initial UI update
+   updateUI();
+
+   // Login button handlers
+   function login() {
+     isLoggedIn = true;
+     updateUI();
+     alert('Anda berhasil login. Selamat menggunakan fitur lengkap LitStory.ID!');
+   }
+   function logout() {
+     isLoggedIn = false;
+     updateUI();
+     alert('Anda telah logout.');
+   }
+
+   loginBtn.addEventListener('click', () => {
+     login();
+   });
+   registerBtn.addEventListener('click', () => {
+     alert('Fitur Daftar belum tersedia. Silakan coba lagi nanti.');
+   });
+   mobileLoginBtn.addEventListener('click', () => {
+     login();
+   });
+   mobileRegisterBtn.addEventListener('click', () => {
+     alert('Fitur Daftar belum tersedia. Silakan coba lagi nanti.');
+   });
+   logoutBtn.addEventListener('click', () => {
+     logout();
+   });
+   mobileLogoutBtn.addEventListener('click', () => {
+     logout();
+   });
+
+   // Explore story buttons (allowed for all, redirect to pages)
+   document.querySelectorAll('.explore-btn').forEach(btn => {
+     btn.addEventListener('click', () => {
+       const url = btn.getAttribute('data-url');
+       if(url) {
+         window.location.href = url;
+       }
+     });
+   });
+
+   // Challenge buttons (login required)
+   document.querySelectorAll('.challenge-btn').forEach(btn => {
+     btn.addEventListener('click', () => {
+       if (!isLoggedIn) {
+         alert('Silakan login terlebih dahulu untuk mengakses fitur ini.');
+         return;
+       }
+       const url = btn.getAttribute('data-url');
+       if(url) {
+         window.location.href = url;
+       }
+     });
+   });
+
+   // Leaderboard buttons (login required)
+   document.querySelectorAll('.leaderboard-btn').forEach(btn => {
+     btn.addEventListener('click', () => {
+       if (!isLoggedIn) {
+         alert('Silakan login terlebih dahulu untuk mengakses fitur ini.');
+         return;
+       }
+       const url = btn.getAttribute('data-url');
+       if(url) {
+         window.location.href = url;
+       }
+     });
+   });
+
+   // Recommendation button (login required)
+   recommendationBtn?.addEventListener('click', () => {
+     if (!isLoggedIn) {
+       alert('Silakan login terlebih dahulu untuk mengakses fitur ini.');
+       return;
+     }
+     const url = recommendationBtn.getAttribute('data-url');
+     if(url) {
+       window.location.href = url;
+     }
+   });
+
+   // Reward redemption logic (login required)
+   rewardItems.forEach(item => {
+     item.addEventListener('click', () => {
+       if (!isLoggedIn) {
+         alert('Silakan login terlebih dahulu untuk menukarkan reward.');
+         return;
+       }
+       const cost = parseInt(item.getAttribute('data-points'), 10);
+       if (userPoints >= cost) {
+         if(confirm(`Apakah Anda yakin ingin menukarkan ${cost} poin untuk "${item.querySelector('span.font-semibold').textContent}"?`)) {
+           userPoints -= cost;
+           document.getElementById('user-points').textContent = userPoints;
+           alert(`Selamat! Anda berhasil menukarkan reward "${item.querySelector('span.font-semibold').textContent}". Terima kasih telah berpartisipasi.`);
+           const url = item.getAttribute('data-url');
+           if(url) {
+             window.location.href = url;
+           }
+         }
+       } else {
+         alert(`Maaf, poin Anda tidak cukup untuk menukarkan reward ini. Kumpulkan lebih banyak poin.`);
+       }
+     });
+   });
+
+   // Submit story button (login required)
+   submitStoryBtn?.addEventListener('click', (e) => {
+     if (!isLoggedIn) {
+       e.preventDefault();
+       alert('Silakan login terlebih dahulu untuk mengirim cerita.');
+     } else {
+       // Here you can add form submission logic or redirect
+       alert('Cerita Anda berhasil dikirim. Terima kasih!');
+       storyForm.reset();
+     }
+   });
+
+   // Start Now button (allowed for all, redirect)
+   startNowBtn?.addEventListener('click', () => {
+     window.location.href = 'start.html';
+   });
+
+   // Listen Story button (allowed for all, redirect)
+   listenStoryBtn?.addEventListener('click', () => {
+     window.location.href = 'listen.html';
+   });
+
+   // Tailwind config for dark mode and custom colors
+   tailwind.config = {
+     darkMode: 'class',
+     theme: {
+       extend: {
+         colors: {
+           lemon: {
+             400: '#f9d976',
+             500: '#f39c12',
+           },
+         },
+         fontFamily: {
+           poppins: ['Poppins', 'sans-serif'],
+           roboto: ['Roboto', 'sans-serif'],
+         },
+       },
+     },
+   };
+  </script>
+ </body>
+</html>
